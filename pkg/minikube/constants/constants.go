@@ -207,10 +207,10 @@ const FileScheme = "file"
 func GetKubeadmCachedImages(kubernetesVersionStr string) []string {
 
 	var images = []string{
-		"k8s.gcr.io/kube-proxy-amd64:" + kubernetesVersionStr,
-		"k8s.gcr.io/kube-scheduler-amd64:" + kubernetesVersionStr,
-		"k8s.gcr.io/kube-controller-manager-amd64:" + kubernetesVersionStr,
-		"k8s.gcr.io/kube-apiserver-amd64:" + kubernetesVersionStr,
+		"registry.hub.docker.com/mirrorgooglecontainers/kube-proxy-amd64:" + kubernetesVersionStr,
+		"registry.hub.docker.com/mirrorgooglecontainers/kube-scheduler-amd64:" + kubernetesVersionStr,
+		"registry.hub.docker.com/mirrorgooglecontainers/kube-controller-manager-amd64:" + kubernetesVersionStr,
+		"registry.hub.docker.com/mirrorgooglecontainers/kube-apiserver-amd64:" + kubernetesVersionStr,
 	}
 
 	gt_v1_10 := semver.MustParseRange(">=1.11.0")
@@ -225,35 +225,35 @@ func GetKubeadmCachedImages(kubernetesVersionStr string) []string {
 
 	if v1_10(kubernetesVersion) || gt_v1_10(kubernetesVersion) {
 		images = append(images, []string{
-			"k8s.gcr.io/pause-amd64:3.1",
-			"k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.8",
-			"k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.8",
-			"k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.8",
-			"k8s.gcr.io/etcd-amd64:3.1.12",
+			"registry.hub.docker.com/mirrorgooglecontainers/pause-amd64:3.1",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-kube-dns-amd64:1.14.8",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-dnsmasq-nanny-amd64:1.14.8",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-sidecar-amd64:1.14.8",
+			"registry.hub.docker.com/mirrorgooglecontainers/etcd-amd64:3.1.12",
 		}...)
 
 	} else if v1_9(kubernetesVersion) {
 		images = append(images, []string{
-			"k8s.gcr.io/pause-amd64:3.0",
-			"k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.7",
-			"k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.7",
-			"k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.7",
-			"k8s.gcr.io/etcd-amd64:3.1.10",
+			"registry.hub.docker.com/mirrorgooglecontainers/pause-amd64:3.0",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-kube-dns-amd64:1.14.7",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-dnsmasq-nanny-amd64:1.14.7",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-sidecar-amd64:1.14.7",
+			"registry.hub.docker.com/mirrorgooglecontainers/etcd-amd64:3.1.10",
 		}...)
 
 	} else if v1_8(kubernetesVersion) {
 		images = append(images, []string{
-			"k8s.gcr.io/pause-amd64:3.0",
-			"k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.5",
-			"k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.5",
-			"k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.5",
-			"k8s.gcr.io/etcd-amd64:3.0.17",
+			"registry.hub.docker.com/mirrorgooglecontainers/pause-amd64:3.0",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-kube-dns-amd64:1.14.5",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-dnsmasq-nanny-amd64:1.14.5",
+			"registry.hub.docker.com/mirrorgooglecontainers/k8s-dns-sidecar-amd64:1.14.5",
+			"registry.hub.docker.com/mirrorgooglecontainers/etcd-amd64:3.0.17",
 		}...)
 	}
 
 	images = append(images, []string{
-		"k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.0",
-		"k8s.gcr.io/kube-addon-manager:v8.6",
+		"registry.hub.docker.com/mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.10.0",
+		"registry.hub.docker.com/mirrorgooglecontainers/kube-addon-manager:v8.6",
 		"gcr.io/k8s-minikube/storage-provisioner:v1.8.1",
 	}...)
 

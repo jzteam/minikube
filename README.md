@@ -162,7 +162,7 @@ Connecting to cluster...
 Setting up kubeconfig...
 Kubectl is now configured to use the cluster.
 
-$ kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.4 --port=8080
+$ kubectl run hello-minikube --image=registry.hub.docker.com/mirrorgooglecontainers/echoserver:1.4 --port=8080
 deployment "hello-minikube" created
 $ kubectl expose deployment hello-minikube --type=NodePort
 service "hello-minikube" exposed
